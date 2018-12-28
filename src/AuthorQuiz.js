@@ -12,7 +12,9 @@ class AuthorQuiz extends Component {
     return (
       <div className="container-fluid">
         <Hero/>
-        <Turn {...this.props.turnData} />
+        <Turn {...this.props.turnData} 
+            highlight={this.props.highlight} 
+            onAnswerSelected={this.props.onAnswerSelected} />
         <Continue/>
         <Footer/>
       </div>
