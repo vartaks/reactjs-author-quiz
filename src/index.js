@@ -100,7 +100,10 @@ function reducer(state = {
     }
 }
 
-let store = Redux.createStore(reducer);
+let store = Redux.createStore(
+    reducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
     <BrowserRouter>
