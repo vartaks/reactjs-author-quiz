@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, withRouter } from 'react-router-dom';
 import './index.css';
 import AuthorQuiz from './AuthorQuiz';
+import AddAuthorForm from './AddAuthorForm';
 import * as serviceWorker from './serviceWorker';
 import { shuffle, sample } from 'underscore';
 
@@ -75,10 +77,20 @@ function onAnswerSelected(answer) {
     render();
 }
 
+function App() {
+    return <AuthorQuiz {...state}
+        onAnswerSelected={onAnswerSelected} />;
+}
+
+
 function render() {
     ReactDOM.render(
-        <AuthorQuiz {...state} 
-            onAnswerSelected={onAnswerSelected} />, 
+        <BrowserRouter>
+            <React.Fragment>
+                <Route exact path="/" component={App} />
+                <Route path="/add" component={AddAuthorForm} />
+            </React.Fragment>
+        </BrowserRouter>,
         document.getElementById('root')
     );
 }

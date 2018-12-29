@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Hero from './Hero';
 import Turn from './Turn';
 import Continue from './Continue';
@@ -16,6 +17,7 @@ class AuthorQuiz extends Component {
             highlight={this.props.highlight} 
             onAnswerSelected={this.props.onAnswerSelected} />
         <Continue/>
+        <p><Link to="/add">Add an author</Link></p>
         <Footer/>
       </div>
     );
